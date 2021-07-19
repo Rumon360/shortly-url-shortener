@@ -1,23 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from "react";
+import Nav from "./components/Nav";
+// Components
+import MainSection from "./components/MainSection";
+import LinkShortener from "./components/LinkShortener";
+import InfoSection from "./components/InfoSection";
+import StyledBoost from "./components/Boost";
+import Footer from "./components/Footer";
+// Global Style
+import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
+  // Hamburger Toggle
+  const [hamburger, setHamburger] = useState(false);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <GlobalStyle />
+
+      <Nav hamburger={hamburger} setHamburger={setHamburger} />
+      <MainSection hamburger={hamburger} />
+      <LinkShortener />
+      <InfoSection />
+      <StyledBoost />
+      <Footer />
     </div>
   );
 }
